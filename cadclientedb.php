@@ -56,7 +56,7 @@
     } else 
     
     {
-        echo "<h5>Os dadosenviados do Formulário</h5>";
+        echo "<h5>Os dados enviados do Formulário</h5>";
         echo "<img height=120 width=120 src='imagens/" . $arquivo['name'] . "'>"; 
         echo "<table border='0' cellpadding='5'>";    
         echo "<tr><td>Nome:</td><td><b>$Nome</b></td></tr>";  
@@ -78,7 +78,7 @@
     $usuario = 'root';
     $senha = '';
     $banco = 'progwebdb';
-    $Id = null;
+    //$Id = null;
 
     try{
         // Conecta com o Banco de Dados MySQL    
@@ -87,19 +87,18 @@
         if (mysqli_connect_errno()) trigger_error(mysqli_connect_errno());
 
         if ($mysqli){
-            echo "Conexão bem sucedida com o mysqli!";
+            //echo "Conexão bem sucedida com o mysqli!";
         
             // ------------ INSERT ------------
-            $sql = "insert into clientes values('".$Id."', '".$Estado."', '".$Nome."', '".$CPF."', '".$Endereco."', 
-            '".$DataNascimento."', '".$Sexo."', '".$Login."', '".$Senha."')";
-            $query = $mysqli -> prepare($sql);
+            $sql = "INSERT INTO clientes(estado_sigla, nome, cpf, endereco, dtNascimento, sexo, login, senha) values ('$Estado', '$Nome', '$CPF', '$Endereco', '$DataNascimento', '$Sexo', '$Login', '$Senha')";
+            $query = $mysqli->prepare($sql);
             $query ->execute();
             if (!$query) {
                 $dados = array('mensage' => "Não foi possível enviar os dados!");
                 echo json_encode($dados);
             }else{
                 $dados = array('mensage' => "Os dados foram enviados com sucesso!");
-                echo json_encode($dados);
+                //echo json_encode($dados);
             };
         
             // ------------ SELECT ------------
