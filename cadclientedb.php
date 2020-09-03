@@ -82,16 +82,16 @@
 
     try{
         // Conecta com o Banco de Dados MySQL    
-        $mysqli = new mysqli($servidor, $usuario, $senha, $banco);
+        $conn = new mysqli($servidor, $usuario, $senha, $banco);
         // Caso a conexão dê erro, exibirá uma mensagem de erro
         if (mysqli_connect_errno()) trigger_error(mysqli_connect_errno());
 
-        if ($mysqli){
+        if ($conn){
             //echo "Conexão bem sucedida com o mysqli!";
         
             // ------------ INSERT ------------
             $sql = "INSERT INTO clientes(estado_sigla, nome, cpf, endereco, dtNascimento, sexo, login, senha) values ('$Estado', '$Nome', '$CPF', '$Endereco', '$DataNascimento', '$Sexo', '$Login', '$Senha')";
-            $query = $mysqli->prepare($sql);
+            $query = $conn->prepare($sql);
             $query ->execute();
             if (!$query) {
                 $dados = array('mensage' => "Não foi possível enviar os dados!");
@@ -106,7 +106,7 @@
             // $sql = "select 'IdClientes', 'estado_sigla', 'nome', 'cpf', 'endereco', 'dtNascimento', 'sexo', 
             // 'login', 'senha' from clientes where 1=1"
 
-            $retorno = $mysqli->query($sql);
+            $retorno = $conn->query($sql);
             echo "<h5>DADOS RETORNADOS DO BANCO DE DADOS</h5>";
             echo "<table border='1'>";
             echo "<tr>";
@@ -143,7 +143,7 @@
                 echo "</tr>";
             }     
             echo "</table>";    
-            die("Consulta realizada e registros existentes retornados!");
+            die("<p style=color:green; '><b>Consulta realizada e registros existentes retornados!<b></p>");
         }
     else{ 
             $dados = array('mensage' => "Não foi possível inserir os dados! Por favor, tente novamente mais tarde!");
