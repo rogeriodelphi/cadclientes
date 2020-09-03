@@ -1,4 +1,4 @@
-# caclientes - CRUD de Clientes
+# cadclientes - CRUD de Clientes
 ```bash
 *Sistema de cadastro de clientes*  
 Projeto desenvolvido em _PHP_ no _Windows_, testado no GNU/_Linux_ e _Windows_.  

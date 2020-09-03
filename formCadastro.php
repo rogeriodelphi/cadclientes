@@ -14,7 +14,7 @@ and open the template in the editor.
     </head>
     <body>
         <form method="post" name="formCadastro"    
-            action="http://localhost/cadastros/cadcliente.php" 
+            action="http://localhost/cadastros/cadclientedb.php" 
             enctype="multipart/form-data">  
             <h1>Cadastro de Cliente</h1>
             <table width="100%"> 
@@ -51,37 +51,33 @@ and open the template in the editor.
                 </tr>
                 <tr>
                     <th>Data Nasc.</th>
-                    <td><input type="date" name="txtData"></td>
+                    <td><input type="date" name="textDataNascimento"></td>
                 </tr>
                <tr>
                     <th>Sexo</th>
                     <td>  
-                        <input type="radio" name="sexo" value="Masculino" checked>Masculino<br>
-                        <input type="radio" name="sexo" value="Feminino" />Feminino<br>
+                        <select name=listSexo>
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>    
                     </td>
                 </tr>
-                <tr>
-                    <th>Principal Área de Interesse</th>
-                    <td>
-                        <input type="radio" name="interesse" value="Cinema" />Cinema<br>                        
-                        <input type="radio" name="interesse" value="Musica" />Música<br>                        
-                        <input type="radio" name="interesse" value="Informática" />Informática<br>                        
-                    </td>
-                </tr>
+
                 <tr>
                     <th>login</th>
                     <td><input type="text" name="txtLogin"></td>    
                 </tr>
                 <tr>
                     <th>Senha</th>
-                    <td><input type="password" name="txtSenha1"></td>    
+                    <td><input type="password" name="txtSenha"></td>    
                 </tr>
                 <tr>
                     <th>Confirma Senha</th>
-                    <td><input type="password" name="txtSenha2"></td>    
+                    <td><input type="password" name="txtConfirmaSenha"></td>    
                 </tr>
                 <tr>
-                    <td colspan=2 align=right>
+                
+                    <td colspan=2 >
                         <input type="submit" name="btnEnviar" value="Enviar">
                         <input type="reset" name="btnLimpar" value="Limpar">
                     </td>
